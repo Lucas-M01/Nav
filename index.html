@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-BR" data-page="home">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#543e38">
+    <meta name="description" content="Escolha um link para continuar.">
+    <title>Meus links</title>
+    <link rel="stylesheet" href="./css/site.css">
+    <script>
+      // A home e as rotas ?go e #slug usam o mesmo arquivo HTML.
+      if (new URLSearchParams(location.search).has("go") || location.hash) {
+        document.documentElement.dataset.route = "redirect";
+        document.title = "Redirecionamento";
+        const robots = document.createElement("meta");
+        robots.name = "robots";
+        robots.content = "noindex";
+        document.head.append(robots);
+      }
+    </script>
+    <script type="module" src="./js/app.mjs"></script>
+  </head>
+  <body>
+    <main class="layout">
+      <section class="home" id="home" aria-labelledby="home-title">
+        <header class="identity">
+          <!-- Nome, descrição e imagem são preenchidos a partir de site.json. -->
+          <img class="brand-mark" id="site-logo" width="96" height="96" alt="" hidden>
+          <h1 id="home-title">Meus links</h1>
+          <p id="site-description"></p>
+        </header>
+        <nav aria-label="Links disponíveis">
+          <ul class="links" id="links" aria-busy="true"></ul>
+        </nav>
+        <noscript><p class="notice">Ative o JavaScript para ver os links disponíveis.</p></noscript>
+        <p id="home-notice" class="notice" role="status"></p>
+      </section>
+      <section id="status" hidden></section>
+    </main>
+  </body>
+</html>

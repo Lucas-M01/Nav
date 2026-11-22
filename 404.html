@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR" data-page="404">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#543e38">
+    <meta name="robots" content="noindex">
+    <title>Link não encontrado</title>
+    <style>
+      html { background: #543e38; color: #fff6ea; }
+      [data-loading] #status { visibility: hidden; }
+    </style>
+    <script>document.documentElement.dataset.loading = "";</script>
+    <noscript><link rel="stylesheet" href="/css/site.css"></noscript>
+  </head>
+  <body>
+    <main class="layout">
+      <section class="status" id="status" aria-labelledby="status-title">
+        <p class="eyebrow">Erro 404</p>
+        <h1 id="status-title">Link não encontrado</h1>
+        <p>Confira o endereço ou volte para a página inicial.</p>
+        <a class="primary-link" href="/" id="home-link">Voltar para a página inicial</a>
+      </section>
+    </main>
+    <script type="module">
+      // Descobre a subpasta também no GitHub Pages, sem editar o nome do repositório.
+      // A URL do navegador continua sendo a solicitada quando o host serve o 404.
+      let base = "/";
+      const project = location.pathname.match(/^\/[^/]+\//)?.[0];
+      if (project) {
+        try {
+          const response = await fetch(`${project}site.json`, { cache: "no-cache" });
+          if (response.ok && typeof (await response.json()).title === "string") base = project;
+        } catch {
+          // Em um site de conta ou domínio próprio, a base é a raiz.
+        }
+      }
+
+      document.getElementById("home-link").href = base;
+      const stylesheet = document.createElement("link");
+      stylesheet.rel = "stylesheet";
+      stylesheet.href = base + "css/site.css";
+      document.head.append(stylesheet);
+
+      try {
+        await import(`${base}js/app.mjs`);
+      } finally {
+        delete document.documentElement.dataset.loading;
+      }
+    </script>
+  </body>
+</html>

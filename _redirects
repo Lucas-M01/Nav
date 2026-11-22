@@ -1,0 +1,5 @@
+# Gerado por scripts/gerar-redirecionamentos.mjs. Edite redirects.json.
+/linkedin /404.html 200
+/instagram /404.html 302
+/teste /404.html 200
+/contato /404.html 200

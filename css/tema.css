@@ -1,0 +1,21 @@
+/* Personalize as cores, a fonte e os cantos aqui. As páginas usam o mesmo tema. */
+:root {
+  /* Fundo da página e textos sobre ele. */
+  --background: #543e38;
+  --on-background: #fff6ea;
+  --muted-on-background: #f0dbcf;
+
+  /* Cartões, página de espera e tela 404. */
+  --surface: #fffaf3;
+  --on-surface: #392721;
+  --muted-on-surface: #71584e;
+
+  /* Botões, detalhes e foco de navegação por teclado. */
+  --accent: #543e38;
+  --on-accent: #fff6ea;
+  --focus: #ffd6a0;
+
+  /* Fontes do sistema dispensam downloads. Use px ou rem para os cantos. */
+  --font-family: "Avenir Next", system-ui, sans-serif;
+  --card-radius: 12px;
+}

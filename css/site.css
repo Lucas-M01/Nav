@@ -1,0 +1,263 @@
+@import url("./tema.css");
+
+/* Estrutura e comportamento visual. Para personalizar, edite tema.css. */
+:root {
+  color-scheme: dark;
+  font-family: var(--font-family);
+  line-height: 1.5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+[hidden],
+[data-route="redirect"] #home {
+  display: none !important;
+}
+
+body {
+  min-width: 0;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--on-background);
+  background-color: var(--background);
+  background-image:
+    radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--on-background) 4%, transparent) 0.7px, transparent 1.1px),
+    radial-gradient(ellipse at 50% 0, color-mix(in srgb, var(--background) 90%, var(--on-background)) 0%, transparent 64%),
+    linear-gradient(155deg, var(--background), color-mix(in srgb, var(--background) 85%, black));
+  background-size: 20px 20px, auto, auto;
+}
+
+.layout {
+  width: min(100% - 40px, 552px);
+  margin-inline: auto;
+  padding-block: clamp(56px, 11vh, 98px) 52px;
+}
+
+.identity {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.brand-mark {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-inline: auto;
+  border-radius: 50%;
+  box-shadow: 0 6px 24px #2c1b1c40;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 8vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.045em;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+
+.identity h1 {
+  margin-top: 18px;
+}
+
+.identity p {
+  margin: 9px 0 0;
+  color: var(--muted-on-background);
+  font-size: 1rem;
+  overflow-wrap: anywhere;
+}
+
+.links {
+  display: grid;
+  gap: 13px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.link-card {
+  display: grid;
+  min-height: 76px;
+  grid-template-columns: 44px minmax(0, 1fr) 44px;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 13px;
+  border: 1px solid color-mix(in srgb, var(--surface) 80%, var(--accent));
+  border-radius: var(--card-radius);
+  background: var(--surface);
+  box-shadow: 0 4px 10px #2c1b1c24;
+  color: var(--on-surface);
+  text-decoration: none;
+  transition: background-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.link-card:hover {
+  transform: translateY(-2px);
+  background: color-mix(in srgb, var(--surface) 95%, var(--accent));
+  box-shadow: 0 6px 14px #2c1b1c42;
+}
+
+.link-thumbnail {
+  position: relative;
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--surface) 70%, var(--accent));
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--surface) 90%, var(--accent));
+  color: var(--on-surface);
+  font-family: Georgia, serif;
+  font-size: 1.35rem;
+}
+
+.link-thumbnail img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.link-icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-color: currentColor;
+  /* A máscara permite que os ícones acompanhem a cor de texto do tema. */
+  -webkit-mask: var(--icon-image) center / contain no-repeat;
+  mask: var(--icon-image) center / contain no-repeat;
+}
+
+.link-label {
+  display: grid;
+  gap: 2px;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.link-label strong {
+  font-size: 1rem;
+  font-weight: 650;
+  line-height: 1.25;
+}
+
+.link-label span {
+  color: var(--muted-on-surface);
+  font-size: 0.8125rem;
+}
+
+.status {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  width: min(100%, 432px);
+  margin-inline: auto;
+  padding: clamp(24px, 7vw, 42px);
+  border: 1px solid color-mix(in srgb, var(--surface) 80%, var(--accent));
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: 0 12px 42px #2c1b1c40;
+  color: var(--on-surface);
+  text-align: center;
+  color-scheme: light;
+}
+
+.status .brand-mark {
+  box-shadow: 0 3px 12px #2c1b1c22;
+}
+
+.status h1 {
+  font-size: clamp(1.7rem, 6vw, 2.2rem);
+}
+
+.status p {
+  margin: 0;
+  color: var(--muted-on-surface);
+}
+
+.status .eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.status .countdown {
+  display: grid;
+  min-width: 68px;
+  max-width: 100%;
+  min-height: 68px;
+  place-items: center;
+  margin-top: 4px;
+  padding-inline: 12px;
+  border: 1px solid color-mix(in srgb, var(--surface) 70%, var(--accent));
+  border-radius: 40px;
+  background: color-mix(in srgb, var(--surface) 90%, var(--accent));
+  color: var(--on-surface);
+  font-size: 2rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  overflow-wrap: anywhere;
+}
+
+.primary-link {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 4px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.primary-link:hover {
+  background: color-mix(in srgb, var(--accent) 85%, black);
+}
+
+.text-link {
+  display: inline-grid;
+  min-height: 44px;
+  place-items: center;
+  color: inherit;
+  font-size: 0.875rem;
+  text-underline-offset: 0.2em;
+}
+
+.notice {
+  margin: 12px 0 0;
+  color: var(--muted-on-background);
+  text-align: center;
+}
+
+.notice:empty {
+  margin: 0;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 4px;
+}
+
+.status :focus-visible {
+  outline-color: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link-card {
+    transition: none;
+  }
+
+  .link-card:hover {
+    transform: none;
+  }
+}

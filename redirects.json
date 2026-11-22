@@ -1,0 +1,28 @@
+[
+  {
+    "slug": "linkedin",
+    "title": "LinkedIn",
+    "icon": "linkedin",
+    "url": "https://www.exmple.net/",
+    "delay": 3
+  },
+  {
+    "slug": "instagram",
+    "title": "Instagram",
+    "icon": "instagram",
+    "url": "https://www.example.net",
+    "delay": 0
+  },
+  {
+    "slug": "teste",
+    "title": "Teste",
+    "url": "https://example.net/",
+    "delay": 10
+  },
+  {
+    "slug": "contato",
+    "title": "Contato",
+    "url": "https://example.net/",
+    "delay": 5
+  }
+]
